@@ -30,8 +30,8 @@ int main()
 	const long long PY		= 0;		///< y-coordinate of object wave in the frequency domain
 	const double	lambda	= 405e-9;	///< wavelength [m]
 	const double	d		= 0.2;		///< propagation distance [m]
-	const double	dx		= 3.45e-6;	///< mesh size in the x-direction
-	const double	dy		= 3.45e-6;	///< mesh size in the x-direction
+	const double	dx		= 3.45e-6;	///< mesh size in the x-direction [m]
+	const double	dy		= 3.45e-6;	///< mesh size in the x-direction [m]
 	const double	gamma	= 0.01;		///< step size
 	const double	tau		= 0.8;		///< TV regularization parameter
 	const double	rd		= 128;		///< radius of the window for the high pass filter
