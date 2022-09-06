@@ -7,7 +7,7 @@ C-ODH is a simulation program that implements the algorithm of the following pap
 Based on a compressed sensing framework, C-ODH can reconstruct object waves at high resolution from interferogram images.
 
 ## Build and Run
-C-ODH is developed with [Visual Studio 2022](https://visualstudio.microsoft.com/free-developer-offers/) on Windows. [Intel Mathkernel Library (MKL)](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html), [boost](https://www.boost.org/), [OpenCV](https://opencv.org/), and [Armadillo](http://arma.sourceforge.net/) are also used. To build C-ODH, install Visual Studio 2022 and MKL, then install boost, OpenCV, and Armadillo with [vcpkg](https://github.com/microsoft/vcpkg). After installing vcpkg according to the instructions in the above link, install the libraries and integrate them with Visual Studio using the following command.
+C-ODH is developed with [Visual Studio 2022](https://visualstudio.microsoft.com/free-developer-offers/) on Windows. [Intel Math Kernel Library (MKL)](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html), [boost](https://www.boost.org/), [OpenCV](https://opencv.org/), and [Armadillo](http://arma.sourceforge.net/) are also used. To build C-ODH, install Visual Studio 2022 and MKL, then install boost, OpenCV, and Armadillo with [vcpkg](https://github.com/microsoft/vcpkg). After installing vcpkg according to the instructions in the above link, install the libraries and integrate them with Visual Studio using the following command.
 
 ```console
 > vcpkg install boost:x64-windows opencv:x64-windows armadillo:x64-windows
