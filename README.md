@@ -31,3 +31,26 @@ const double	gamma	= 0.01;		///< step size
 const double	tau	= 0.8;		///< TV regularization parameter
 const double	rd	= 128;		///< radius of the window for the high pass filter
 ```
+
+## Numerical Model
+![Numerical Model](https://github.com/syoshida1983/C-ODH/blob/images/model.jpg)
+
+The observation model is shown in the figure above. The object wave $\mathbf{x}$ propagates to the sensor surface and interferes with the reference wave $\mathbf{r}$. This process is represented by the following linear transformation.
+
+$$\mathbf{y}=\mathbf{Ax}\equiv 2\Re(\mathbf{F}^{*}\mathbf{P}^{\intercal}\mathbf{HFx}),$$
+
+where $\mathbf{y}$ is the hologram with the non-diffracted wave component removed, $\mathbf{F}$ is the two-dimensional Fourier transform, $\mathbf{H}$ is the transfer function representing the propagation in free space, and $\mathbf{P}$ is an orthogonal matrix representing the frequency shift due to the superposition of the reference wave. The reconstruction of the object wave x can be formulated as the following minimization problem.
+
+$$\min_{\mathbf{x}}\left\\{f(\mathbf{x})+g(\mathbf{x})\right\\}\equiv\min_{\mathbf{x}}\left\\{\frac{1}{2}\\|\mathbf{Ax}-\mathbf{y}\\|_{2}^{2}+\tau\mathrm{TV}(\mathbf{x})\right\\},$$
+
+where $\\|\cdot\\|\_{2}$ is the $L_{2}$ norm, $\mathrm{TV}$ is the total variation, and $\tau$ is the regularization parameter. The above minimization problem is solved numerically using [FISTA](https://doi.org/10.1137/080716542) with initial values $\mathbf{x}=\mathbf{z}=\mathbf{0}$, $s=1$ as follows.
+
+$$\mathbf{x}^{(n+1)}=\mathrm{prox}\_{\gamma g}\left[\mathbf{z}^{(n)}-\gamma\nabla f\left(\mathbf{z}^{(n)}\right)\right]=\mathrm{prox}\_{\gamma\tau\mathrm{TV}}\left[\mathbf{z}^{(n)}-\gamma\nabla f\left(\mathbf{z}^{(n)}\right)\right],$$
+
+$$\nabla f(\mathbf{x})=\mathbf A^* (\mathbf{Ax}-\mathbf{y})=2\mathbf F^* \mathbf H^* \mathbf{PF}\left[2\Re\left(\mathbf F^* \mathbf P^{\intercal} \mathbf{HFx}\right)-\mathbf{y}\right],$$
+
+$$s^{(n+1)}=\frac{1+\sqrt{1+4\left(s^{(n)}\right)^{2}}}{2},$$
+
+$$\mathbf{z}^{(n+1)}=\mathbf{x}^{(n+1)}+\frac{s^{(n)}-1}{s^{(n+1)}}\cdot\left(\mathbf{x}^{(n+1)}-\mathbf{x}^{(n)}\right),$$
+
+where $\gamma$ is the step size and $\mathrm{prox}\_{\gamma g}$ is the proxima operator of the function $g$ scaled by $\gamma$. [FGP](https://doi.org/10.1109/TIP.2009.2028250) is used to calculate $\mathrm{prox}\_{\gamma g}$.
