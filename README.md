@@ -1,5 +1,7 @@
 # Compressed off-axis digital holography
 
+[![DOI](https://img.shields.io/badge/DOI-10.1088/2040--8986/aba940-blue.svg)](https://doi.org/10.1088/2040-8986/aba940)
+
 C-ODH is a simulation program that implements the algorithm of the following paper.
 
 > [Shuhei Yoshida, “Compressed off-axis digital holography,” J. Opt. 22 (9), 095703 (2020).](https://doi.org/10.1088/2040-8986/aba940)
