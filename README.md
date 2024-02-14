@@ -56,3 +56,20 @@ $$s^{(n+1)}=\frac{1+\sqrt{1+4\left(s^{(n)}\right)^{2}}}{2},$$
 $$\mathbf{z}^{(n+1)}=\mathbf{x}^{(n+1)}+\frac{s^{(n)}-1}{s^{(n+1)}}\cdot\left(\mathbf{x}^{(n+1)}-\mathbf{x}^{(n)}\right),$$
 
 where $\gamma$ is the step size and $\mathrm{prox}\_{\gamma g}$ is the proxima operator of the function $g$ scaled by $\gamma$. [FGP](https://doi.org/10.1109/TIP.2009.2028250) is used to calculate $\mathrm{prox}\_{\gamma g}$.
+
+## Citation
+```BibTeX
+@article{Yoshida2020,
+	author		= {Shuhei Yoshida},
+	doi		= {10.1088/2040-8986/aba940},
+	issue		= {9},
+	journal		= {Journal of Optics},
+	month		= {8},
+	pages		= {095703},
+	publisher	= {IOP Publishing},
+	title		= {Compressed off-axis digital holography},
+	volume		= {22},
+	url		= {https://iopscience.iop.org/article/10.1088/2040-8986/aba940},
+	year		= {2020},
+}
+```
